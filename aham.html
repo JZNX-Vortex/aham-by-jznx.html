@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>aham</title>
+
+<style>
+body {
+  background: black;
+  color: #00ffcc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: monospace;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* TEXTO DE CIMA */
+#titulo {
+  font-size: 28px;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+/* CAIXA */
+#caixa {
+  background: #111;
+  padding: 40px 60px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #00ffcc33;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* TEXTO AHAM */
+#aham {
+  font-size: 60px;
+}
+
+/* HOVER */
+#caixa:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px #ff00ff55;
+}
+</style>
+</head>
+
+<body>
+
+<div id="titulo">aperte a caixa abaixo</div>
+
+<div id="caixa">
+  <div id="aham">aham</div>
+</div>
+
+<script>
+const el = document.getElementById("aham");
+const caixa = document.getElementById("caixa");
+
+const variacoes = [
+  "aham", "AHAM", "aHaM", "aham...", "aham 😐", "aham 😈",
+  "aham???", "aham!!!", "aham 😴", "aham 😎",
+  "ɐɥɐɯ", "maha", "a̷h̷a̷m̷", "🅐🅗🅐🅜"
+];
+
+caixa.onclick = () => {
+  const random = variacoes[Math.floor(Math.random() * variacoes.length)];
+  el.innerText = random;
+
+  el.style.fontSize = (50 + Math.random() * 60) + "px";
+  caixa.style.transform = `rotate(${Math.random()*10-5}deg)`;
+  el.style.color = `hsl(${Math.random()*360}, 100%, 60%)`;
+};
+</script>
+
+</body>
+</html>
